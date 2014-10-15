@@ -1,0 +1,13 @@
+D:\Progetti\Private\WebShop\WebShop.Providers\bin\Debug\WebShop.Providers.dll
+D:\Progetti\Private\WebShop\WebShop.Providers\bin\Debug\WebShop.Providers.pdb
+D:\Progetti\Private\WebShop\WebShop.Providers\obj\Debug\WebShop.Providers.dll
+D:\Progetti\Private\WebShop\WebShop.Providers\obj\Debug\WebShop.Providers.pdb
+D:\Progetti\Private\WebShop\WebShop.Providers\bin\Debug\System.Web.Http.dll
+D:\Progetti\Private\WebShop\WebShop.Providers\bin\Debug\System.Net.Http.dll
+D:\Progetti\Private\WebShop\WebShop.Providers\bin\Debug\System.Net.Http.Formatting.dll
+D:\Progetti\Private\WebShop\WebShop.Providers\bin\Debug\System.Web.Http.xml
+D:\Progetti\Private\WebShop\WebShop.Providers\bin\Debug\System.Net.Http.xml
+D:\Progetti\Private\WebShop\WebShop.Providers\bin\Debug\System.Net.Http.Formatting.xml
+D:\Progetti\Private\WebShop\WebShop.Providers\bin\Debug\it\System.Web.Http.resources.dll
+D:\Progetti\Private\WebShop\WebShop.Providers\bin\Debug\it\System.Net.Http.resources.dll
+D:\Progetti\Private\WebShop\WebShop.Providers\bin\Debug\it\System.Net.Http.Formatting.resources.dll

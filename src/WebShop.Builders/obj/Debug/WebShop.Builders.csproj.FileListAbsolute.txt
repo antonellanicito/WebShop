@@ -1,0 +1,7 @@
+D:\Progetti\Private\WebShop\WebShop.Builders\bin\Debug\WebShop.Builders.dll
+D:\Progetti\Private\WebShop\WebShop.Builders\bin\Debug\WebShop.Builders.pdb
+D:\Progetti\Private\WebShop\WebShop.Builders\bin\Debug\WebShop.Model.dll
+D:\Progetti\Private\WebShop\WebShop.Builders\bin\Debug\WebShop.Model.pdb
+D:\Progetti\Private\WebShop\WebShop.Builders\obj\Debug\WebShop.Builders.csprojResolveAssemblyReference.cache
+D:\Progetti\Private\WebShop\WebShop.Builders\obj\Debug\WebShop.Builders.dll
+D:\Progetti\Private\WebShop\WebShop.Builders\obj\Debug\WebShop.Builders.pdb

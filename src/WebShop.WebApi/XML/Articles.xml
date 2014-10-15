@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>
+	<Articles>
+		<Article key="1">
+			<Name>Article 1</Name>
+			<Summary>Summary 1</Summary>
+			<Description>Description 1</Description>
+			<Price>1.0</Price>
+			<VAT>10</VAT>
+		</Article>
+		<Article key="2">
+			<Name>Article 2</Name>
+			<Summary>Summary 2</Summary>
+			<Description>Description 2</Description>
+			<Price>2.0</Price>
+			<VAT>20</VAT>
+		</Article>	
+		<Article key="3">
+			<Name>Article 3</Name>
+			<Summary>Summary 3</Summary>
+			<Description>Description 3</Description>
+			<Price>3.0</Price>
+			<VAT>10</VAT>
+		</Article>
+		<Article key="4">
+			<Name>Article 4</Name>
+			<Summary>Summary 4</Summary>
+			<Description>Description 4</Description>
+			<Price>4.0</Price>
+			<VAT>10</VAT>
+		</Article>
+		<Article key="5">
+			<Name>Article 5</Name>
+			<Summary>Summary 5</Summary>
+			<Description>Description 5</Description>
+			<Price>5.0</Price>
+			<VAT>10</VAT>
+		</Article>
+		<Article key="6">
+			<Name>Article 6</Name>
+			<Summary>Summary 6</Summary>
+			<Description>Description 6</Description>
+			<Price>6.0</Price>
+			<VAT>20</VAT>
+		</Article>
+		<Article key="7">
+			<Name>Article 7</Name>
+			<Summary>Summary 7</Summary>
+			<Description>Description 7</Description>
+			<Price>7.0</Price>
+			<VAT>10</VAT>
+		</Article>
+		<Article key="8">
+			<Name>Article 8</Name>
+			<Summary>Summary 8</Summary>
+			<Description>Description 8</Description>
+			<Price>8.0</Price>
+			<VAT>20</VAT>
+		</Article>
+		<Article key="9">
+			<Name>Article 9</Name>
+			<Summary>Summary 9</Summary>
+			<Description>Description 9</Description>
+			<Price>9.0</Price>
+			<VAT>10</VAT>
+		</Article>
+		<Article key="10">
+			<Name>Article 10</Name>
+			<Summary>Summary 10</Summary>
+			<Description>Description 10</Description>
+			<Price>10.0</Price>
+			<VAT>20</VAT>
+		</Article>
+		<Article key="11">
+			<Name>Article 11</Name>
+			<Summary>Summary 11</Summary>
+			<Description>Description 11</Description>
+			<Price>11.0</Price>
+			<VAT>10</VAT>
+		</Article>	
+		<Article key="12">
+			<Name>Article 12</Name>
+			<Summary>Summary 12</Summary>
+			<Description>Description 12</Description>
+			<Price>12.0</Price>
+			<VAT>20</VAT>
+		</Article>		
+				<Article key="13">
+			<Name>Article 13</Name>
+			<Summary>Summary 13</Summary>
+			<Description>Description 13</Description>
+			<Price>13.0</Price>
+			<VAT>10</VAT>
+		</Article>		
+				<Article key="14">
+			<Name>Article 14</Name>
+			<Summary>Summary 14</Summary>
+			<Description>Description 14</Description>
+			<Price>14.0</Price>
+			<VAT>20</VAT>
+		</Article>
+		<Article key="15">
+			<Name>Article 15</Name>
+			<Summary>Summary 15</Summary>
+			<Description>Description 15</Description>
+			<Price>15.0</Price>
+			<VAT>10</VAT>
+		</Article>				
+	</Articles>
+</document>

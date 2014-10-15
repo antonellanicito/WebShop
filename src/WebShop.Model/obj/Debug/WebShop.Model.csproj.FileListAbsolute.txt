@@ -1,0 +1,4 @@
+D:\Progetti\Private\WebShop\WebShop.Model\bin\Debug\WebShop.Model.dll
+D:\Progetti\Private\WebShop\WebShop.Model\bin\Debug\WebShop.Model.pdb
+D:\Progetti\Private\WebShop\WebShop.Model\obj\Debug\WebShop.Model.dll
+D:\Progetti\Private\WebShop\WebShop.Model\obj\Debug\WebShop.Model.pdb
