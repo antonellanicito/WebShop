@@ -28,8 +28,8 @@ namespace WebShop.WebApi
             
             GlobalConfiguration.Configuration.DependencyResolver = new UnityResolver();
             Register(GlobalConfiguration.Configuration);
- 
-            
+
+            Bootstrapper.Initialise();           
         }
         public static void Register(HttpConfiguration config)
         {

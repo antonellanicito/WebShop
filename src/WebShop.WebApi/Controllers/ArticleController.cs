@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
+using System.Net;
 using System.Web.Http;
+
 using WebShop.Providers;
 using WebShop.Providers.Contracts;
 using WebShop.Builders;
@@ -24,14 +25,11 @@ namespace WebShop.WebApi.Controllers
         }
         public Article GetArticleById(int id)
         {
-            return new Article
-            {
-                Id = 1,
-                Name = "test"
-            };
+            return articleBuilder.GetArticlesById(xmlProvider.GetXmlArticles(),id);
         }
-        
-        public List<Article> GetArticles() 
+
+        [HttpGet]
+        public  List<Article> GetArticles() 
         {
            
             try

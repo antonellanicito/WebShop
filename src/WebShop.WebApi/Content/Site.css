@@ -103,6 +103,43 @@ h5, h6 {
     clear: both;
     padding-bottom: 35px;
 }
+.tooltip {
+	display:none;
+	position:absolute;
+	border:1px solid #333;
+	background-color:#161616;
+	/*--border-radius:5px;--*/
+	padding:10px;
+	color:#fff;
+	font-size:12px Arial;
+}
+
+.buyIt
+{
+    color:Blue;
+    cursor:pointer;
+   
+    }
+
+#main_cont 
+{
+    margin-left:20px;
+    margin-top:20px;
+    width: 80%;
+    
+    overflow: hidden; /* will contain if #first is longer than #second */
+}
+#articles_cont {
+    width: 50%;
+    float:left; /* add this */
+    border: 1px solid black;
+}
+#shoppingcart_cont {
+    border: 1px solid black;
+    overflow: hidden; /* if you don't want #second to wrap below #first */
+}
+
+
 
     .main-content {
         background: url("../Images/accent.png") no-repeat;
@@ -659,6 +696,10 @@ tr.pager td {
     .featured + .main-content {
         background-position: 10px 0;
     }
+
+
+
+
 
     .content-wrapper {
         padding-right: 10px;

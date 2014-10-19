@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShop", "WebShop\WebShop.csproj", "{EC5E591C-361D-45A3-99D0-76D0B9812197}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShop.Model", "WebShop.Model\WebShop.Model.csproj", "{7C72EABE-7311-4E38-BEC6-80BFB162EE0B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShop.Builders", "WebShop.Builders\WebShop.Builders.csproj", "{76205F94-6A9D-461E-AAED-56E87F30FE54}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EC5E591C-361D-45A3-99D0-76D0B9812197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC5E591C-361D-45A3-99D0-76D0B9812197}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC5E591C-361D-45A3-99D0-76D0B9812197}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC5E591C-361D-45A3-99D0-76D0B9812197}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7C72EABE-7311-4E38-BEC6-80BFB162EE0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7C72EABE-7311-4E38-BEC6-80BFB162EE0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C72EABE-7311-4E38-BEC6-80BFB162EE0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
