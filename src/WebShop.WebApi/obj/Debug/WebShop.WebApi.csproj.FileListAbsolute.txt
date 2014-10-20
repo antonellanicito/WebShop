@@ -112,3 +112,10 @@ D:\Progetti\Private\WebShop\WebShop\src\WebShop.WebApi\bin\it\System.Web.WebPage
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.WebApi\obj\Debug\WebShop.WebApi.csprojResolveAssemblyReference.cache
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.WebApi\obj\Debug\WebShop.WebApi.dll
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.WebApi\obj\Debug\WebShop.WebApi.pdb
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.WebApi\bin\EntityFramework.SqlServer.dll
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.WebApi\bin\System.Data.SQLite.dll
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.WebApi\bin\System.Data.SQLite.EF6.dll
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.WebApi\bin\System.Data.SQLite.Linq.dll
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.WebApi\bin\EntityFramework.SqlServer.xml
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.WebApi\bin\System.Data.SQLite.xml
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.WebApi\bin\it\EntityFramework.SqlServer.resources.dll

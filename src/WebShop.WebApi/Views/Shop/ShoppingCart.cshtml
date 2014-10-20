@@ -1,6 +1,10 @@
 ﻿@using WebShop.Model;
 @model List<KeyValuePair<Article,int>>
 
+@{
+    bool isReadOnly = ViewBag.IsReadOnly ?? false;
+    
+}
 
 @if (Model.Any())
 {
@@ -16,23 +20,27 @@
                             <td>@item.Key.Name</td>
 
                             <td>
+                               @if (!isReadOnly)
+                               {
                                @Ajax.ActionLink("Add", "Add", new { id = item.Key.Id }, new AjaxOptions
                                 {
                                     UpdateTargetId = "shoppingcart_cont",
                                     InsertionMode = InsertionMode.Replace,
                                     HttpMethod = "GET"
-                                 })                            
-                            
+                                })
+                               }&nbsp;
                             </td>
                             <td><input type="text" readonly="true" value="@item.Value.ToString()" style="width:20px;"/></td>
                             <td>
+                               @if (!isReadOnly)
+                               { 
                                @Ajax.ActionLink("Remove", "Remove", new { id = item.Key.Id }, new AjaxOptions
                                 {
                                     UpdateTargetId = "shoppingcart_cont",
                                     InsertionMode = InsertionMode.Replace,
                                     HttpMethod = "GET"
-                                 })
-
+                                })
+                               }&nbsp;
                             </td>
                             <td style="color:Red;">
                                 € @String.Format("{0:0.00}", item.Key.TotalPrice * item.Value)
@@ -46,9 +54,13 @@
                             € @String.Format("{0:0.00}", Model.Sum(c => c.Key.TotalPrice * c.Value))
                         </td>
                     </tr> 
+
+                    @if (!isReadOnly)
+                    {
                     <tr>
                         <td colspan="5" align="right">@Html.ActionLink("Complete", "Complete") </td>
-                    </tr>                   
+                    </tr>
+                    }                   
                 </table>
             </td>
         </tr>
