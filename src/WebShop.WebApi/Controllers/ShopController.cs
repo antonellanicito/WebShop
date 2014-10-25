@@ -8,17 +8,21 @@ using WebShop.Providers;
 using WebShop.Providers.Contracts;
 using WebShop.Builders;
 using WebShop.Builders.Contracts;
+using WebShop.DAL;
+using WebShop.DAL.Contracts;
 namespace WebShop.WebApi.Controllers
 {
     public class ShopController : Controller
     {
         readonly IArticleBuilder articleBuilder;
         readonly IXmlProvider xmlProvider;
+        readonly IBLL bLL;
 
-        public ShopController(IArticleBuilder s_articleBuilder, IXmlProvider s_xmlProvider)
+        public ShopController(IArticleBuilder s_articleBuilder, IXmlProvider s_xmlProvider, IBLL s_bLL)
         {
             articleBuilder = s_articleBuilder;
             xmlProvider = s_xmlProvider;
+            bLL = s_bLL;
         }
 
         public ActionResult Index()
@@ -34,33 +38,70 @@ namespace WebShop.WebApi.Controllers
         }
         public PartialViewResult ShoppingCart()
         {
-            Customer current = new Customer();
-            if (HttpContext.Session["customer"] == null)
+            Enquiry current = new Enquiry();
+            if (HttpContext.Session["enquiry"] == null)
 
-                Session["customer"] = current;
+                Session["enquiry"] = current;
 
             else
-                current = (Customer)Session["customer"];
+                current = (Enquiry)Session["enquiry"];
             
             return PartialView(current.ShoppingCart);
         }
         public PartialViewResult Add(int id)
         {
-            Customer current = (Customer) Session["customer"];
+            Enquiry current = (Enquiry)Session["enquiry"];
             current.AddArticle(articleBuilder.GetArticlesById(xmlProvider.GetXmlArticles(),id));
             return PartialView("ShoppingCart", current.ShoppingCart);
         }
         public PartialViewResult Remove(int id)
         {
-            Customer current = (Customer)Session["customer"];
+            Enquiry current = (Enquiry)Session["enquiry"];
             current.RemoveArticle(id);
             return PartialView("ShoppingCart", current.ShoppingCart);
         }
 
-        public ActionResult Complete()
-        { 
-            return View();
+        public ActionResult Complete(Customer model)
+        {
+            bool completed = false;
 
+            Enquiry enquiry = (Enquiry)Session["enquiry"];
+            
+            if (Request.HttpMethod == "POST")
+            {
+                Customer customer;
+                if (Request.Form.AllKeys.Contains("handler") && Request.Form.GetValues("handler")[0].Equals("Login"))
+                {
+                    customer = bLL.LoginCustomer(model.Email);
+
+                    if (customer != null)
+                    {
+                        //manage shoppingCart
+                        enquiry.customer = customer;
+
+                        completed = bLL.InsertOrder(enquiry);
+                    }
+                    
+
+                }
+                else
+                {
+                    customer = bLL.RegisterCustomer(model);
+                    if (customer != null)
+                    {
+                        //manage shoppingCart
+                        enquiry.customer = customer;
+                        completed = bLL.InsertOrder(enquiry);
+                    }
+
+                }
+
+                if (completed)
+                   enquiry.EmptyShoppingCart();
+                ViewBag.Completed = completed;
+            }
+ 
+            return View(model);
         }
     }
 

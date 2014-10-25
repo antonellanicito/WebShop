@@ -13,5 +13,10 @@ D:\Progetti\Private\WebShop\WebShop.Providers\bin\Debug\it\System.Net.Http.resou
 D:\Progetti\Private\WebShop\WebShop.Providers\bin\Debug\it\System.Net.Http.Formatting.resources.dll
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Providers\bin\Debug\WebShop.Providers.dll
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Providers\bin\Debug\WebShop.Providers.pdb
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Providers\bin\Debug\WebShop.Model.dll
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Providers\bin\Debug\EntityFramework.dll
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Providers\bin\Debug\WebShop.Model.pdb
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Providers\bin\Debug\EntityFramework.xml
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Providers\obj\Debug\WebShop.Providers.csprojResolveAssemblyReference.cache
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Providers\obj\Debug\WebShop.Providers.dll
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Providers\obj\Debug\WebShop.Providers.pdb

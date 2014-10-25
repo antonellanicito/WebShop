@@ -12,7 +12,7 @@
                   columns.Add(foo => foo.Name).SetWidth(110).Sortable(true);
                   columns.Add(foo => foo.Summary).Sortable(true).SetWidth(110);
                   columns.Add(foo => foo.TotalPrice).Sortable(true).Format("{0:0.00}").SetWidth(110).Titled("Price in €");
-                  columns.Add(foo => foo.Id, true);
+                  columns.Add(foo => foo.ArticleID, true);
                   columns.Add().RenderValueAs(foo => "Buy").Css("buyIt");
               }).WithPaging(10).SetRowCssClasses(item => "trArticle")       
               

@@ -7,8 +7,12 @@ D:\Progetti\Private\WebShop\WebShop.Builders\obj\Debug\WebShop.Builders.dll
 D:\Progetti\Private\WebShop\WebShop.Builders\obj\Debug\WebShop.Builders.pdb
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Builders\bin\Debug\WebShop.Builders.dll
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Builders\bin\Debug\WebShop.Builders.pdb
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Builders\bin\Debug\EntityFramework.dll
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Builders\bin\Debug\EntityFramework.SqlServer.dll
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Builders\bin\Debug\WebShop.Model.dll
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Builders\bin\Debug\WebShop.Model.pdb
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Builders\bin\Debug\EntityFramework.xml
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Builders\bin\Debug\EntityFramework.SqlServer.xml
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Builders\obj\Debug\WebShop.Builders.csprojResolveAssemblyReference.cache
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Builders\obj\Debug\WebShop.Builders.dll
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Builders\obj\Debug\WebShop.Builders.pdb

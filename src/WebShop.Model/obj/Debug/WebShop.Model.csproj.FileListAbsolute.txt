@@ -2,7 +2,16 @@ D:\Progetti\Private\WebShop\WebShop.Model\bin\Debug\WebShop.Model.dll
 D:\Progetti\Private\WebShop\WebShop.Model\bin\Debug\WebShop.Model.pdb
 D:\Progetti\Private\WebShop\WebShop.Model\obj\Debug\WebShop.Model.dll
 D:\Progetti\Private\WebShop\WebShop.Model\obj\Debug\WebShop.Model.pdb
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Model\bin\Debug\WebShop.Model.dll.config
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Model\bin\Debug\WebShop.Model.dll
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Model\bin\Debug\WebShop.Model.pdb
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Model\bin\Debug\EntityFramework.dll
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Model\bin\Debug\EntityFramework.SqlServerCompact.dll
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Model\bin\Debug\System.Data.SqlServerCe.dll
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Model\bin\Debug\System.Data.SqlServerCe.Entity.dll
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Model\bin\Debug\EntityFramework.xml
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Progetti\Private\WebShop\WebShop\src\WebShop.Model\bin\Debug\EntityFramework.SqlServerCompact.xml
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Model\obj\Debug\WebShop.Model.dll
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.Model\obj\Debug\WebShop.Model.pdb

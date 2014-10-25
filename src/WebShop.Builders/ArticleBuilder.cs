@@ -15,7 +15,7 @@ namespace WebShop.Builders
         }
         public Article GetArticlesById(XDocument XDoc, int IdArticle)
         {
-            return getArticles(XDoc).First(c => c.Id.Equals(IdArticle));
+            return getArticles(XDoc).First(c => c.ArticleID.Equals(IdArticle));
         }
 
         private List<Article> getArticles(XDocument XDoc)
@@ -26,7 +26,7 @@ namespace WebShop.Builders
                 .Where(c => c.Descendants("VAT").Any())
                 .Select(c => new Article
                 {
-                    Id = int.Parse(c.Attribute("key").Value),
+                    ArticleID = int.Parse(c.Attribute("key").Value),
                     Name = c.Element("Name") != null ? c.Element("Name").Value : "",
                     Description = c.Element("Description") != null ? c.Element("Description").Value : "",
                     Summary = c.Element("Summary") != null ? c.Element("Summary").Value : "",

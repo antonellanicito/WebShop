@@ -22,7 +22,7 @@
                             <td>
                                @if (!isReadOnly)
                                {
-                               @Ajax.ActionLink("Add", "Add", new { id = item.Key.Id }, new AjaxOptions
+                               @Ajax.ActionLink("Add", "Add", new { id = item.Key.ArticleID }, new AjaxOptions
                                 {
                                     UpdateTargetId = "shoppingcart_cont",
                                     InsertionMode = InsertionMode.Replace,
@@ -34,7 +34,7 @@
                             <td>
                                @if (!isReadOnly)
                                { 
-                               @Ajax.ActionLink("Remove", "Remove", new { id = item.Key.Id }, new AjaxOptions
+                               @Ajax.ActionLink("Remove", "Remove", new { id = item.Key.ArticleID }, new AjaxOptions
                                 {
                                     UpdateTargetId = "shoppingcart_cont",
                                     InsertionMode = InsertionMode.Replace,

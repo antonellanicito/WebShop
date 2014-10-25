@@ -34,7 +34,7 @@
               //find value;
               //var IdArticle = 1;
 
-              var IdArticle = $(this).find('td[data-name=Id]').html();
+              var IdArticle = $(this).find('td[data-name=ArticleID]').html();
 
               getArticle(IdArticle);
 
@@ -51,17 +51,18 @@
 
           $(this).find('.buyIt').click(function () {
               //console.log('buy');
-              var IdArticle = $(this).siblings('td[data-name=Id]').html();
+              var IdArticle = $(this).siblings('td[data-name=ArticleID]').html();
               //console.log($(this).siblings('td[data-name=Id]').html());
               $('#shoppingcart_cont').load('/Shop/Add/' + IdArticle);
           });
       });
-      
 
 
-      function formatRow(item) {
-          return '<tr class="trArticle">' + '<td>' + item.Name + '<input type="hidden" value="' + item.Id.toString()  + '" id=key_"' + item.Id.toString() + '"' + '/>' + '</td>' + '<td>' + item.Summary + '</td>' + '<td>' + item.FormattedTotalPrice + '</td>' + '</tr>';
-      }
+
+//      function formatRow(item) {
+//          console.log(item.ArticleID);
+//          return '<tr class="trArticle">' + '<td>' + item.Name + '<input type="hidden" value="' + item.ArticleID.toString() + '" id=key_"' + item.ArticleID.toString() + '"' + '/>' + '</td>' + '<td>' + item.Summary + '</td>' + '<td>' + item.FormattedTotalPrice + '</td>' + '</tr>';
+//      }
       function handleArticle(data) {
           //console.log(data);
           var table = '<table>';
@@ -80,7 +81,7 @@
           return table;
       }
       function getArticle(idArticle) {
-
+          console.log(idArticle);
           $.getJSON(uri + '/' + idArticle)
           .done(function (data) {
               handleArticle(data);

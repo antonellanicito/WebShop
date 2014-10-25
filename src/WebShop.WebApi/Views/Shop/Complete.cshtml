@@ -1,6 +1,43 @@
-﻿@{
+﻿@using WebShop.Model;
+
+@model WebShop.Model.Customer
+
+@{
     ViewBag.Title = "Complete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    bool isCompleted = ViewBag.Completed != null ? ViewBag.Completed : false; 
+    }
 
+@if (!isCompleted)
+{
 <h2>Complete</h2>
+
+<table style="margin-left: 100px;">
+    <tr><td>Login if you have already an account </td></tr>
+    <tr>
+        <td>
+            @Html.Action("Login", "Customer", Model)
+        </td>   
+    </tr>
+    <tr style="height: 20px;"><td>&nbsp;</td></tr>
+    <tr>
+        <td>Register if you are a new user</td>
+    </tr>
+    <tr>
+        <td>
+             @Html.Action("Register", "Customer", Model)
+        </td>
+        
+    </tr>
+</table>
+
+}
+else
+{
+    <h2>Thank You</h2>
+    <p>
+        @Html.ActionLink("Buy again","Index")
+    </p>
+}

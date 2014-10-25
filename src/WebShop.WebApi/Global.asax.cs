@@ -9,10 +9,10 @@ using System.Web.Routing;
 using WebShop.Builders;
 using WebShop.Builders.Contracts;
 using Microsoft.Practices.Unity;
-using System.Data.EntityClient;
-using System.Data.SQLite;
 using System.Configuration;
+using WebShop.DAL;
 
+using System.Data.Entity;
 namespace WebShop.WebApi
 {
     // Nota: per istruzioni su come abilitare la modalità classica di IIS6 o IIS7, 
@@ -33,7 +33,16 @@ namespace WebShop.WebApi
             Register(GlobalConfiguration.Configuration);
 
             Bootstrapper.Initialise();
-            InitLocalDb();
+
+            WebShopContext context = new WebShopContext(true);
+            //Database.SetInitializer(new CreateDatabaseIfNotExists<WebShopDBContext>());
+
+            //using (var db = new WebShopDBContext())
+            //{
+            //    db.Database.Initialize(false);
+
+            //}
+            //InitLocalDb();
         }
         public static void Register(HttpConfiguration config)
         {
@@ -82,119 +91,130 @@ namespace WebShop.WebApi
 
         }
 
-        private static void InitLocalDb()
-        {
-            var ee = new System.Data.EntityClient.EntityConnectionStringBuilder();
-            var builder = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["DbLocalEntities"].ConnectionString);
+        //private static void InitLocalDb()
+        //{
+        //    var ee = new System.Data.EntityClient.EntityConnectionStringBuilder();
+        //    var builder = new EntityConnectionStringBuilder(ConfigurationManager.ConnectionStrings["DbLocalEntities"].ConnectionString);
 
-            using (var connection = new SQLiteConnection(builder.ProviderConnectionString))
-            using (var command = connection.CreateCommand())
-            {
+        //    using (var connection = new SQLiteConnection(builder.ProviderConnectionString))
+        //    using (var command = connection.CreateCommand())
+        //    {
 
-                connection.Open(); //Automatically creates sqlite datbase if none exists
-                var titles = connection.GetSchema("Tables").Select("Table_Name = 'Titles'");
-                if (titles.Length <= 0)
-                { 
-                    command.CommandText = 
-                    "CREATE TABLE [Titles] (" +
-                    "[IdTitle] INTEGER PRIMARY KEY NOT NULL," + 
-                    "[Title] TEXT NOT NULL" +
-                    ")";
+        //        connection.Open(); //Automatically creates sqlite datbase if none exists
+        //        var titles = connection.GetSchema("Tables").Select("Table_Name = 'Titles'");
+        //        if (titles.Length <= 0)
+        //        { 
+        //            command.CommandText = 
+        //            "CREATE TABLE [Titles] (" +
+        //            "[IdTitle] INTEGER PRIMARY KEY NOT NULL," + 
+        //            "[Title] TEXT NOT NULL" +
+        //            ")";
 
-                    command.ExecuteNonQuery();
+        //            command.ExecuteNonQuery();
 
-                    command.CommandText =
-                    "INSERT INTO Titles " +
-                    "(IdTitle, Title) " +
-                    "VALUES (1, 'Mr')";
-                    command.ExecuteNonQuery();
+        //            command.CommandText =
+        //            "INSERT INTO Titles " +
+        //            "(IdTitle, Title) " +
+        //            "VALUES (1, 'Mr')";
+        //            command.ExecuteNonQuery();
 
-                    command.CommandText =
-                    "INSERT INTO Titles " +
-                    "(IdTitle, Title) " +
-                    "VALUES (2, 'Miss')";
-                    command.ExecuteNonQuery();
+        //            command.CommandText =
+        //            "INSERT INTO Titles " +
+        //            "(IdTitle, Title) " +
+        //            "VALUES (2, 'Miss')";
+        //            command.ExecuteNonQuery();
 
-                    command.CommandText =
-                    "INSERT INTO Titles " +
-                    "(IdTitle, Title) " +
-                    "VALUES (3, 'Mrs')";
-                    command.ExecuteNonQuery();
-                }
+        //            command.CommandText =
+        //            "INSERT INTO Titles " +
+        //            "(IdTitle, Title) " +
+        //            "VALUES (3, 'Mrs')";
+        //            command.ExecuteNonQuery();
+        //        }
 
 
-                var table = connection.GetSchema("Tables").Select("Table_Name = 'Customers'");
-                if (table.Length <= 0)
-                {
-                    command.CommandText =
-                        "CREATE TABLE [Customers] ( " +
-                        "[IdCustomer] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
-                        "[IdTitle] INTEGER NOT NULL REFERENCES Titles(IdTitle), " + 
-                        "[FirstName] TEXT NOT NULL, " + 
-                        "[LastName] TEXT NOT NULL, " +
-                        "[Address] TEXT NOT NULL, " +
-                        "[HouseNumber] TEXT NOT NULL, " +
-                        "[ZipCode] TEXT NOT NULL, " +
-                        "[City] TEXT NOT NULL, " +
-                        "[Email] TEXT UNIQUE NOT NULL " + 
-                        ")";
-                    command.ExecuteNonQuery();
+        //        var table = connection.GetSchema("Tables").Select("Table_Name = 'Customers'");
+        //        if (table.Length <= 0)
+        //        {
+        //            command.CommandText =
+        //                "CREATE TABLE [Customers] ( " +
+        //                "[IdCustomer] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+        //                "[IdTitle] INTEGER NOT NULL REFERENCES Titles(IdTitle), " + 
+        //                "[FirstName] TEXT NOT NULL, " + 
+        //                "[LastName] TEXT NOT NULL, " +
+        //                "[Address] TEXT NOT NULL, " +
+        //                "[HouseNumber] TEXT NOT NULL, " +
+        //                "[ZipCode] TEXT NOT NULL, " +
+        //                "[City] TEXT NOT NULL, " +
+        //                "[Email] TEXT UNIQUE NOT NULL " + 
+        //                ")";
+        //            command.ExecuteNonQuery();
 
-                }
+        //        }
 
-                var article = connection.GetSchema("Tables").Select("Table_Name = 'Articles'");
-                if (table.Length <= 0)
-                {
-                    command.CommandText =
-                        "CREATE TABLE [Articles] ( " +
-                        "[IdArticle] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
-                        "[Name] TEXT NOT NULL, " +
-                        "[Summary] TEXT NOT NULL, " +
-                        "[Description] TEXT NOT NULL, " +
-                        "[Price] NUMERIC NOT NULL, " +
-                        "[VAT] NUMERIC NOT NULL " +
+        //        var article = connection.GetSchema("Tables").Select("Table_Name = 'Articles'");
+        //        if (table.Length <= 0)
+        //        {
+        //            command.CommandText =
+        //                "CREATE TABLE [Articles] ( " +
+        //                "[IdArticle] INTEGER PRIMARY KEY NOT NULL, " +
+        //                "[Name] TEXT NOT NULL, " +
+        //                "[Summary] TEXT NOT NULL, " +
+        //                "[Description] TEXT NOT NULL, " +
+        //                "[Price] NUMERIC NOT NULL, " +
+        //                "[VAT] NUMERIC NOT NULL " +
 
-                        ")";
-                    command.ExecuteNonQuery();
+        //                ")";
+        //            command.ExecuteNonQuery();
 
-                }
+        //        }
 
-                var orders = connection.GetSchema("Tables").Select("Table_Name = 'Orders'");
-                if (table.Length <= 0)
-                {
-                    command.CommandText =
-                        "CREATE TABLE [Orders] ( " +
-                        "[IdOrder] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
-                        "[DateOrder] NUMERIC NOT NULL, " +
-                        "[IdArticle] INTEGER NOT NULL REFERENCES Articles(IdArticle), " +
-                        "[IdCustomer] INTEGER NOT NULL REFERENCES Customers(IdCustomer) " +
+        //        var orders = connection.GetSchema("Tables").Select("Table_Name = 'Orders'");
+        //        if (table.Length <= 0)
+        //        {
+        //            command.CommandText =
+        //                "CREATE TABLE [Orders] ( " +
+        //                "[IdOrder] INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+        //                "[DateOrder] NUMERIC NOT NULL, " +
+        //                "[IdCustomer] INTEGER NOT NULL REFERENCES Customers(IdCustomer) " +
 
-                        ")";
-                    command.ExecuteNonQuery();
+        //                ")";
+        //            command.ExecuteNonQuery();
 
-                }
+        //        }
+        //        var relorders = connection.GetSchema("Tables").Select("Table_Name = 'Rel_OrdersArticles'");
+        //        if (table.Length <= 0)
+        //        {
+        //            command.CommandText =
+        //                "CREATE TABLE [Rel_OrdersArticles] ( " +
+        //                "[IdOrder] INTEGER NOT NULL REFERENCES Orders(IdOrder), " +
+        //                "[IdArticle] INTEGER NOT NULL REFERENCES Articles(IdArticle), " +
+        //                "[ItemsNr] INTEGER NOT NULL, " +
+        //                "PRIMARY KEY (IdOrder, IdArticle)" + 
+        //                ")";
+        //            command.ExecuteNonQuery();
 
-                //var uriIndex = connection.GetSchema("Indexes").Select("Index_Name = 'IDX_BINARIES_COMPONENTURI'");
-                //if (uriIndex.Length <= 0)
-                //{
-                //    command.CommandText =
-                //        "CREATE INDEX [IDX_BINARIES_COMPONENTURI] ON [Binaries](" +
-                //        "[ComponentUri]  DESC" +
-                //        ")";
-                //    command.ExecuteNonQuery();
-                //}
+        //        }
+        //        //var uriIndex = connection.GetSchema("Indexes").Select("Index_Name = 'IDX_BINARIES_COMPONENTURI'");
+        //        //if (uriIndex.Length <= 0)
+        //        //{
+        //        //    command.CommandText =
+        //        //        "CREATE INDEX [IDX_BINARIES_COMPONENTURI] ON [Binaries](" +
+        //        //        "[ComponentUri]  DESC" +
+        //        //        ")";
+        //        //    command.ExecuteNonQuery();
+        //        //}
 
-                //var pathIndex = connection.GetSchema("Indexes").Select("Index_Name = 'IDX_BINARIES_PATH'");
-                //if (pathIndex.Length <= 0)
-                //{
-                //    command.CommandText =
-                //        "CREATE INDEX [IDX_BINARIES_PATH] ON [Binaries](" +
-                //        "[Path]  DESC" +
-                //        ")";
-                //    command.ExecuteNonQuery();
-                //}
-            }
-        }
+        //        //var pathIndex = connection.GetSchema("Indexes").Select("Index_Name = 'IDX_BINARIES_PATH'");
+        //        //if (pathIndex.Length <= 0)
+        //        //{
+        //        //    command.CommandText =
+        //        //        "CREATE INDEX [IDX_BINARIES_PATH] ON [Binaries](" +
+        //        //        "[Path]  DESC" +
+        //        //        ")";
+        //        //    command.ExecuteNonQuery();
+        //        //}
+        //    }
+        //}
     }
 
 
