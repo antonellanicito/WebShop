@@ -32,19 +32,19 @@ namespace WebShop.DAL
         //        this.Database.Initialize(false);
         //    }
         //}
-        protected WebShopContext()
+        protected WebShopContext(IArticleBuilder s_articleBuilder, IXmlProvider s_xmlProvider)
             : base("LocalWebShop")
         {
-            Database.SetInitializer<WebShopContext>(new DBInitializer());
+            Database.SetInitializer<WebShopContext>(new DBInitializer(s_articleBuilder, s_xmlProvider));
             this.Database.Initialize(false);
         }
-        static public WebShopContext GetInstance()
+        static public WebShopContext GetInstance(IArticleBuilder s_articleBuilder, IXmlProvider s_xmlProvider)
         {
             if (_instance != null)
                 return _instance;
             else
             {
-                _instance = new WebShopContext();
+                _instance = new WebShopContext(s_articleBuilder,s_xmlProvider);
                 return _instance;
             }
         }
@@ -53,10 +53,10 @@ namespace WebShop.DAL
     {
         private IArticleBuilder articleBuilder;
         private IXmlProvider xmlProvider;
-        public DBInitializer()
+        public DBInitializer(IArticleBuilder s_articleBuilder, IXmlProvider s_xmlProvider)
         {
-            articleBuilder = new ArticleBuilder();
-            xmlProvider = new XmlProvider();
+            articleBuilder = s_articleBuilder;
+            xmlProvider = s_xmlProvider;
 
         }
 

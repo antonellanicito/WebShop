@@ -11,11 +11,13 @@ namespace WebShop.DAL
     public class EntityRepository : IEntityRepository, IDisposable
     {
         readonly WebShopContext webShopContext;// = new WebShopContext(false);
-        
-        public EntityRepository()
+        readonly IArticleBuilder articleBuilder;
+        readonly IXmlProvider xmlProvider;
+        public EntityRepository(IArticleBuilder s_articleBuilder, IXmlProvider s_xmlProvider)
         {
-                        
-            webShopContext = WebShopContext.GetInstance ();
+            articleBuilder = s_articleBuilder;
+            xmlProvider = s_xmlProvider; 
+            webShopContext = WebShopContext.GetInstance (articleBuilder, xmlProvider);
         }
 
         public List<Title> GetTitles()
