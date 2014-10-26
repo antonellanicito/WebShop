@@ -11,8 +11,7 @@ namespace WebShop.DAL
     public class EntityRepository : IEntityRepository, IDisposable
     {
         readonly WebShopContext webShopContext;// = new WebShopContext(false);
-        public IXmlProvider xmlProvider { get; set; }
-        public IArticleBuilder articleBuilder { get; set; }
+        
         public EntityRepository()
         {
                         
