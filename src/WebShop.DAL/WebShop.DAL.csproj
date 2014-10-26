@@ -58,15 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL.cs" />
-    <Compile Include="Contracts\IBLL.cs" />
+    <Compile Include="Contracts\IEntityRepository.cs" />
+    <Compile Include="EntityRepository.cs" />
     <Compile Include="WebShopContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

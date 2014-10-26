@@ -11,9 +11,10 @@ namespace WebShop.WebApi.Controllers
 {
     public class CustomerController : Controller
     {
-        readonly IBLL bLL;
-        public CustomerController(IBLL s_bLL) {
-            bLL = s_bLL;
+        
+        readonly IEntityRepository entityHandler;
+        public CustomerController(IEntityRepository s_entityHandler) {
+            entityHandler = s_entityHandler;
         }
         public ActionResult Login(Customer model)
         {
@@ -29,7 +30,7 @@ namespace WebShop.WebApi.Controllers
         }
         public ActionResult Register(Customer model)
         {
-            ViewBag.Titles = new SelectList(bLL.GetTitles(), "TitleID", "TitleDescription");
+            ViewBag.Titles = new SelectList(entityHandler.GetTitles(), "TitleID", "TitleDescription");
             ViewBag.IsNewUser = true;
             if (Request.HttpMethod == "GET")
 

@@ -4,19 +4,23 @@ using System.Linq;
 using System.Text;
 using WebShop.DAL.Contracts;
 using WebShop.Model;
+using WebShop.Builders.Contracts;
+using WebShop.Providers.Contracts;
 namespace WebShop.DAL
 {
-    public class BLL :IBLL
+    public class EntityRepository : IEntityRepository, IDisposable
     {
-        readonly WebShopContext webShopContext; 
-        public BLL()
+        readonly WebShopContext webShopContext;// = new WebShopContext(false);
+        public IXmlProvider xmlProvider { get; set; }
+        public IArticleBuilder articleBuilder { get; set; }
+        public EntityRepository()
         {
-            webShopContext = new WebShopContext(false);
+            webShopContext = WebShopContext.GetInstance (articleBuilder, xmlProvider);
         }
-        
+
         public List<Title> GetTitles()
         {
-            WebShopContext webShopContext = new WebShopContext(false);
+            //WebShopContext webShopContext = new WebShopContext(false);
             return webShopContext.Titles.Select(c => (Title)c).ToList();
         }
 
@@ -25,7 +29,7 @@ namespace WebShop.DAL
             if (webShopContext.Customers.Any(c => c.Email.ToLower().Equals(email.ToLower())))
             {
                 return (Customer)webShopContext.Customers.Single(c => c.Email.ToLower().Equals(email.ToLower()));
-                
+
             }
             return null;
 
@@ -37,9 +41,9 @@ namespace WebShop.DAL
             try
             {
                 if (!webShopContext.Customers.Any(c => c.Email.ToLower().Equals(customer.Email.ToLower())))
-                webShopContext.Customers.Add(customer);
+                    webShopContext.Customers.Add(customer);
                 webShopContext.SaveChanges();
-                  
+
                 return customer;
             }
             catch
@@ -47,7 +51,7 @@ namespace WebShop.DAL
                 return null;
             }
 
-            
+
         }
 
 
@@ -69,7 +73,7 @@ namespace WebShop.DAL
                     detail.Qty = item.Value;
 
                     webShopContext.OrderDetails.Add(detail);
-                    
+
                 }
                 webShopContext.Orders.Add(order);
                 webShopContext.SaveChanges();
@@ -79,6 +83,24 @@ namespace WebShop.DAL
             {
                 return false;
             }
+        }
+
+
+        protected void dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (webShopContext != null)
+                {
+                    webShopContext.Dispose();
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            dispose(true);
+            GC.SuppressFinalize(this);
         }
 
     }

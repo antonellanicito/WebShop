@@ -34,7 +34,7 @@ namespace WebShop.WebApi
 
             Bootstrapper.Initialise();
 
-            WebShopContext context = new WebShopContext(true);
+            //WebShopContext context = new WebShopContext(true);
             //Database.SetInitializer(new CreateDatabaseIfNotExists<WebShopDBContext>());
 
             //using (var db = new WebShopDBContext())

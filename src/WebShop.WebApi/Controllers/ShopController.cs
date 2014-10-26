@@ -16,13 +16,13 @@ namespace WebShop.WebApi.Controllers
     {
         readonly IArticleBuilder articleBuilder;
         readonly IXmlProvider xmlProvider;
-        readonly IBLL bLL;
+        readonly IEntityRepository entityHandler;
 
-        public ShopController(IArticleBuilder s_articleBuilder, IXmlProvider s_xmlProvider, IBLL s_bLL)
+        public ShopController(IArticleBuilder s_articleBuilder, IXmlProvider s_xmlProvider, IEntityRepository s_entityHandler)
         {
             articleBuilder = s_articleBuilder;
             xmlProvider = s_xmlProvider;
-            bLL = s_bLL;
+            entityHandler = s_entityHandler;
         }
 
         public ActionResult Index()
@@ -72,28 +72,24 @@ namespace WebShop.WebApi.Controllers
                 Customer customer;
                 if (Request.Form.AllKeys.Contains("handler") && Request.Form.GetValues("handler")[0].Equals("Login"))
                 {
-                    customer = bLL.LoginCustomer(model.Email);
+                    customer = entityHandler.LoginCustomer(model.Email);
 
                     if (customer != null)
                     {
                         //manage shoppingCart
                         enquiry.customer = customer;
-
-                        completed = bLL.InsertOrder(enquiry);
+                        completed = entityHandler.InsertOrder(enquiry);
                     }
-                    
-
                 }
                 else
                 {
-                    customer = bLL.RegisterCustomer(model);
+                    customer = entityHandler.RegisterCustomer(model);
                     if (customer != null)
                     {
                         //manage shoppingCart
                         enquiry.customer = customer;
-                        completed = bLL.InsertOrder(enquiry);
+                        completed = entityHandler.InsertOrder(enquiry);
                     }
-
                 }
 
                 if (completed)

@@ -1,4 +1,3 @@
-D:\Progetti\Private\WebShop\WebShop\src\WebShop.DAL\bin\Debug\WebShop.DAL.dll.config
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.DAL\bin\Debug\WebShop.DAL.dll
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.DAL\bin\Debug\WebShop.DAL.pdb
 D:\Progetti\Private\WebShop\WebShop\src\WebShop.DAL\bin\Debug\EntityFramework.dll

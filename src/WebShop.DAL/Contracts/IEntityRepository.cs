@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WebShop.Model;
+
 namespace WebShop.DAL.Contracts
 {
-    public interface IBLL
+    public interface IEntityRepository
     {
         bool InsertOrder(Enquiry enquiry);
         Customer LoginCustomer(string email);
