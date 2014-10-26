@@ -32,31 +32,31 @@ namespace WebShop.DAL
         //        this.Database.Initialize(false);
         //    }
         //}
-        protected WebShopContext(IArticleBuilder s_articleBuilder, IXmlProvider s_xmlProvider)
+        protected WebShopContext()
             : base("LocalWebShop")
         {
-            Database.SetInitializer<WebShopContext>(new DBInitializer(s_articleBuilder, s_xmlProvider));
+            Database.SetInitializer<WebShopContext>(new DBInitializer());
             this.Database.Initialize(false);
         }
-        static public WebShopContext GetInstance(IArticleBuilder s_articleBuilder, IXmlProvider s_xmlProvider)
+        static public WebShopContext GetInstance()
         {
             if (_instance != null)
                 return _instance;
             else
             {
-                _instance = new WebShopContext(s_articleBuilder, s_xmlProvider);
+                _instance = new WebShopContext();
                 return _instance;
             }
         }
     }
-    public class DBInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<WebShopContext>
+    public class DBInitializer : System.Data.Entity.DropCreateDatabaseAlways<WebShopContext>
     {
-        public IArticleBuilder articleBuilder;
-        public IXmlProvider xmlProvider;
-        public DBInitializer(IArticleBuilder s_articleBuilder, IXmlProvider s_xmlProvider)
+        private IArticleBuilder articleBuilder;
+        private IXmlProvider xmlProvider;
+        public DBInitializer()
         {
-            articleBuilder = s_articleBuilder;
-            xmlProvider = s_xmlProvider;
+            articleBuilder = new ArticleBuilder();
+            xmlProvider = new XmlProvider();
 
         }
 

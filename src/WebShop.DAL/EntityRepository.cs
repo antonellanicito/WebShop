@@ -15,7 +15,8 @@ namespace WebShop.DAL
         public IArticleBuilder articleBuilder { get; set; }
         public EntityRepository()
         {
-            webShopContext = WebShopContext.GetInstance (articleBuilder, xmlProvider);
+                        
+            webShopContext = WebShopContext.GetInstance ();
         }
 
         public List<Title> GetTitles()
