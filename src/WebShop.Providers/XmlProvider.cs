@@ -8,6 +8,7 @@ using System.Web;
 using System.Configuration;
 using System.Web.Caching;
 
+
 namespace WebShop.Providers
 {
     public class XmlProvider : IXmlProvider
@@ -37,8 +38,7 @@ namespace WebShop.Providers
                 return XDocument.Parse("<document><Articles></Articles></document>");
             }
         }
-
-
         
+              
     }
 }

@@ -15,7 +15,9 @@ namespace WebShop.Builders
         }
         public Article GetArticlesById(XDocument XDoc, int IdArticle)
         {
-            return getArticles(XDoc).First(c => c.ArticleID.Equals(IdArticle));
+
+                return getArticles(XDoc).First(c => c.ArticleID.Equals(IdArticle));
+
         }
 
         private List<Article> getArticles(XDocument XDoc)

@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WebShopContext.cs" />
     <Compile Include="XmlProvider.cs" />
     <Compile Include="Contracts\IXmlProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

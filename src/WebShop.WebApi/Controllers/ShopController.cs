@@ -60,7 +60,6 @@ namespace WebShop.WebApi.Controllers
             current.RemoveArticle(id);
             return PartialView("ShoppingCart", current.ShoppingCart);
         }
-
         public ActionResult Complete(Customer model)
         {
             bool completed = false;
@@ -99,6 +98,7 @@ namespace WebShop.WebApi.Controllers
  
             return View(model);
         }
+
     }
 
 }
